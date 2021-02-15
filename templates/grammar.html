@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<head>
+	<title>Grammar Mistakes Detector </title>
+	<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+	<link rel="stylesheet" href="https://unpkg.com/purecss@2.0.4/build/pure-min.css" integrity="sha384-LJy5cxQRSMIYu2ic+Tvw0Azob5Z3dQxRkR8LNGIq46AJEdfE9DtuBOCNtifRJeB7" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap" rel="stylesheet">
+</head>
+	
+	
+<body>
+	<!--           Header          -->
+	<h1 align = "center" >Grammar Mistakes Detector </h1>
+
+	<!--           Intro          -->
+	<div style="font-family: 'Merriweather', serif;  font-size: 14px; position: relative;  top: 0px; line-height: 23px;">
+	<p align = "center" > Detects if the given English sentence has grammatical mistakes.<br>
+		The app uses a BERT model trained on the "The Corpus of Linguistic Acceptability (CoLA)" data set. 
+		The complete code repository is <a href="https://github.com/Mostafa-M-Abla/portfolio">here</a>.<br><br></p>
+
+		<p align = "center" style="color:DarkSlateBlue; font-size: 16px;"> Note: This app detects grammar mistakes, not spelling mistakes.</p>
+	</div>
+
+	<!--           Prompt the user to enter the text to analyze        -->
+	<div style="position: relative;  top: 35px; " align = "center">
+		<form id = "text_input" class="pure-form pure-form-stacked" method="POST" action="/grammar">
+			<fieldset>
+				<textarea maxlength="250" style="position: relative;"  id="text_input" name="text_input" rows="4" cols="50" form="text_input">{{text_to_show}}</textarea>
+				<button type="submit" class="pure-button pure-button-primary">Analyze</button>
+			</fieldset>
+		</form>	
+	</div>
+				
+	<!--           Prediction's Visulaization    -->
+	<div style="font-family:'Merriweather',serif;  font-size: 18px;text-align: center; position: relative; top: 40px; ">
+		{% if prediction == 'no_mistake'%}
+			<p align = "center" style="color:LimeGreen; font-weight: bold;"> Great! No grammar mistakes detected!</p>
+		{% elif prediction == 'mistake'%}
+			<p align = "center" style="color:OrangeRed; font-weight: bold;"> Ops! Grammar mistake detected!</p>
+		{% else %}
+			<p align = "center" style="color:white; font-weight: bold;"> This is only a place holder</p>
+		{% endif %}
+	</div>
+
+	<!--           Back Button         -->
+	<p align="center"><a href="/" ><button class="pure-button pure-button-primary" style="background-color:DarkSlateGrey; height:30px; width:90px; position:relative; top:80px; left:-410px">Back</button></a></p>
+</body>

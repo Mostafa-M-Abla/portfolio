@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+<head>
+	<title>Mostafa Portfolio </title>
+	<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+	<link rel="stylesheet" href="https://unpkg.com/purecss@2.0.4/build/pure-min.css" integrity="sha384-LJy5cxQRSMIYu2ic+Tvw0Azob5Z3dQxRkR8LNGIq46AJEdfE9DtuBOCNtifRJeB7" crossorigin="anonymous">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap" rel="stylesheet">
+</head>
+	
+<body>
+
+<!--           Header          -->
+<h1 align = "center" >Garbage Classifier </h1>
+
+<!--           Intro          -->
+<div style="font-family: 'Merriweather', serif;  font-size: 14px; position: relative;  top: 0px; line-height: 22px;">
+<p align = "center" > This AI powered app classifies household garbage images into 12 categories. <br>
+	The runnable code used to build and train the model is <a href="https://www.kaggle.com/mostafaabla/garbage-classification-keras-transfer-learning">here</a>, 
+	the dataset used to train the model is <a href="https://www.kaggle.com/mostafaabla/garbage-classification">here</a>.</p>
+</div>
+
+<!--           Prompt the user to enter the URL of the image         -->
+<div style="position: relative;  top: 5px; ">
+	<form id = "enter_url" align = "center" class="pure-form" method="POST" action="/garbage">
+		<fieldset>
+			<label for="image_url">Please Enter Image URL:  </label>
+			<input type="text" placeholder="URL" id="image_url" name="url-input"/>
+			<button type="submit" class="pure-button pure-button-primary">Classify</button>
+		</fieldset>
+	</form>	
+</div>
+
+<!--           Show the selected image          -->
+{% if image_to_classify_name %}
+<div style="text-align: center; position: relative; top: 20px;">
+	<img src={{image_to_classify_name}} height="150" />
+</div>
+{% endif %}
+
+<!--           Prediction's Visulaization    -->
+<div style="text-align: center;  position: relative; top: 50px; ">
+	<img src={{pred_visualisation_name}} height="170" />
+	
+</div>
+
+<!--           Probabilities Table          -->
+{% if category_1_name %}
+<div style="font-size: 15px;  position: relative; top: 80px; ">
+	<table id = "preds_table" class = "pure-table" align = "center" >
+		<thead>
+			<tr>
+				<th></th>
+				<th>Category</th>
+				<th>Probability</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>1</td>
+				<td>{{category_1_name}}</td>
+				<td>{{category_1_prob}}</td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>{{category_2_name}}</td>
+				<td>{{category_2_prob}}</td>
+			</tr>
+			<tr>
+				<td>3</td>
+				<td>{{category_3_name}}</td>
+				<td>{{category_3_prob}}</td>
+			</tr>
+		</tbody>
+	</table>
+	
+</div>
+
+<!--           Back Button if prediction table is shown  -->
+<p align="center"><a href="/" ><button class="pure-button pure-button-primary" style="background-color:DarkSlateGrey; height:30px; width:90px; position:relative; top:35px; left:-410px">Back</button></a></p>
+
+{% else %}
+<!--           Back Button if prediction table is not shown  -->
+<p align="center"><a href="/" ><button class="pure-button pure-button-primary" style="background-color:DarkSlateGrey; height:30px; width:90px; position:relative; top:162px; left:-410px">Back</button></a></p>
+
+{% endif %}
+
+  
+</body>
