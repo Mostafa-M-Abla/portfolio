@@ -1,4 +1,4 @@
-This Repository contains two Machine Learning Projects, Garbage Classification and Grammar Mistakes Detector, that I implemented and deployed. Feel free to play a bit with the applications! https://mostafa-portfolio.azurewebsites.net/
+This Repository contains two Machine Learning Projects, Garbage Classification and Grammar Mistakes Detector, that I implemented and deployed. Feel free to play a bit with the applications! http://mostafa-abla.com/
 
 # Project 1: Garbage Classifier
 This project is a demonstration of the ability of machine learning to sort household garbage images into 12 different categories and thus facilitate the recycling process.
@@ -14,17 +14,18 @@ As a part of this project the following was done:
 - The application was deployed in the website mentioned above, fell free to try it out!
 
 # Repository Contents
-1.	“DataSets” Folder with description files
-2.	“models_training_notebooks” which contain the notebooks used for training both models. 
-3.	"garbage_model.json” and "garbage_model_weights.h5” which are the trained model and the weights of the trained garbage classifier model respectively, they are used to perform the prediction.
-4.	“static” folder contains some images for the web app.
-5.	“template” folder has the html files for the web app
-6.	“app.py” is the main file for the web app, and it also uses the “grammar_app.py” and "garbage_app.py" files.
-7.	“Dockerfile” is the file from which I created the docker image that I deployed.
-8.	Requirements.txt has a list of all the required packages to run the application.
+1.	"aws_sagemaker_pipeline" Folder containg the complete AWS Sagemaker pipline repos
+2.	“DataSets” Folder with description files
+3.	“models_training_notebooks” which contain the notebooks used for training both models. 
+4.	"garbage_model.json” and "garbage_model_weights.h5” which are the trained model and the weights of the trained garbage classifier model respectively, they are used to perform the prediction.
+5.	“static” folder contains some images for the web app.
+6.	“template” folder has the html files for the web app
+7.	“app.py” is the main file for the web app, and it also uses the “grammar_app.py” and "garbage_app.py" files.
+8.	“Dockerfile” is the file from which I created the docker image that I deployed.
+9.	Requirements.txt has a list of all the required packages to run the application.
 
 # How to run
--	To test the web app, visit https://garbage-classifier.azurewebsites.net/
+-	To test the web app, visit http://mostafa-abla.com/
 -	To run the Garbage Classifier model training notebook visit https://www.kaggle.com/mostafaabla/garbage-classification-keras-transfer-learning
 -   To run the Grammar Mistakes Detector training notebook, you can run the notebook in Google Colab, saved in models_training_notebooks or also through this link https://colab.research.google.com/drive/1hwxc9p5910KtYHYHIwEk8e3A27PczvDr?usp=sharing
 -	If you want to run the web app on your PC then you need to install all the packages mentioned in the “requirements.txt” and then start the “app.py”

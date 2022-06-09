@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<head>
+	<title>Mostafa Portfolio</title>
+	<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+	<link rel="stylesheet" href="https://unpkg.com/purecss@2.0.4/build/pure-min.css" integrity="sha384-LJy5cxQRSMIYu2ic+Tvw0Azob5Z3dQxRkR8LNGIq46AJEdfE9DtuBOCNtifRJeB7" crossorigin="anonymous">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Domine:wght@700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap" rel="stylesheet">
+</head>
+	
+<body>
+	<!--           Intro          -->
+	<div style="font-family: 'Domine'; color:black;" align = "center">
+		<p style="font-size: 25px; position:relative; top:10px;">I am </p>
+		<p style="font-size: 35px; position:relative; top:-10px;">Mostafa Mohamed</p>
+	</div>
+
+	<div style="font-family: 'Merriweather', serif;  font-size: 18px; line-height: 24px; color:grey; position: relative;  top: 15px;">
+		<p align = "center" > This website presents two of my machine learning projects. The complete code repository is 
+								<a href="https://github.com/Mostafa-M-Abla/portfolio">here</a>.<br> 
+								Have Fun :)   </p>
+	</div>
+	  
+	<!--           2 Buttons for the two applications          -->
+	<p align="center"><a href=garbage ><button class="pure-button pure-button-primary" style="font-family:'Comfortaa', serif; font-size:30px; height:120px; width:450px; position:relative; top:110px;">Garbage Classifier</button></a></p>
+	<p align="center"><a href=grammar ><button class="pure-button pure-button-primary" style="font-family:'Comfortaa', serif; font-size:30px; height:120px; width:450px; position:relative; top:140px;">Grammar Mistakes Detector</button></a></p>
+
+	<!--           Author's Photo          -->
+	<div align="center" style="position: relative;  top: -460px; left: -582px;">
+		<img id = "author_photo" src="{{url_for('static', filename='author_photo.jpg')}}" height="230" />
+	</div>	  
+</body>

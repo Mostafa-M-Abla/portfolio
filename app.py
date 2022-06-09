@@ -1,7 +1,5 @@
 import os
 import time
-import tensorflow
-import tensorflow.keras.applications.xception as xception
 
 from flask import Flask, request, render_template, redirect
 
@@ -25,7 +23,7 @@ def rootpage():
 @app.route('/garbage', methods = ['GET', 'POST'])
 def garbage():
 	'''Page of the garbage classifier app '''
-
+	
 	image_to_classify_name, pred_visualisation_name, category_1_name, category_1_prob, category_2_name, category_2_prob, category_3_name,\
 	  category_3_prob = garbage_app.run()
 		

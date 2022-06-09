@@ -1,8 +1,7 @@
 import torch
-import tensorflow
 import time
+import numpy as np
 
-from tensorflow.keras.preprocessing.sequence import pad_sequences
 from pytorch_pretrained_bert import BertTokenizer, BertForSequenceClassification
 from flask import request
 
@@ -65,7 +64,21 @@ def predict(model, tokenizier, text_to_analyze):
 	input_ids = [tokenizer.convert_tokens_to_ids(x) for x in tokenized_text]
 
 	# Pad our input tokens
-	input_ids = pad_sequences(input_ids, maxlen=MAX_LEN, dtype="long", truncating="post", padding="post")
+	# The input ids is a two dimensional array, and the first array has only one element
+	# We extract the first element, do the padding and return it again.
+	input_ids = input_ids[0]
+
+	input_ids_length = len(input_ids)
+
+	# Trim the input ids if it exceeds MAX_LEN
+	if (input_ids_length > MAX_LEN):
+		input_ids = input_ids [0 : MAX_LEN]
+
+	pad_length = MAX_LEN - len(input_ids)
+	
+	input_ids = np.pad(input_ids, (0, pad_length), 'constant', constant_values=(0, 0))
+
+	input_ids = [input_ids]
 
 	# Create attention masks
 	attention_masks = []
