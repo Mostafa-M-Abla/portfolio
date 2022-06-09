@@ -13,8 +13,6 @@ COPY garbage_app.py .
 COPY grammar_app.py .
 
 #Copy models and weights
-COPY garbage_model_weights.h5 .
-COPY garbage_model.json .
 COPY grammar_model.pt .
 
 COPY ./static ./static
